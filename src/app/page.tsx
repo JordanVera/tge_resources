@@ -27,6 +27,7 @@ import {
 } from 'lucide-react';
 
 import { FadeIn, Stagger, StaggerItem } from '@/components/motion';
+import { HeroVideo } from '@/components/hero-video';
 import { Section, SectionHeading } from '@/components/section';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -73,7 +74,11 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <div className="relative overflow-hidden border-b border-border blueprint-grid hero-gradient">
+      <div className="relative overflow-hidden border-b border-border">
+        <HeroVideo src="/hero-video.mp4" />
+        <div className="absolute inset-0 bg-linear-to-r from-background via-background/80 to-background/45" />
+        <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-black/50" />
+        <div className="hero-gradient absolute inset-0" />
         <div className="relative mx-auto max-w-6xl px-4 py-24 md:px-6 md:py-40">
           <FadeIn>
             <div className="mb-6 flex flex-wrap items-center gap-3">

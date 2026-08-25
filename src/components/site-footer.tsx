@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { MapPinIcon, PhoneIcon, MailIcon, ShieldCheckIcon } from 'lucide-react';
 
+import { BrandLogo } from '@/components/brand-logo';
 import { Separator } from '@/components/ui/separator';
 import { services } from '@/lib/services';
 import { site } from '@/lib/site';
@@ -21,10 +22,9 @@ export function SiteFooter() {
 
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-4 md:px-6">
         <div className="md:col-span-1">
-          <div className="mb-3 flex items-baseline gap-2">
-            <span className="text-2xl font-bold text-primary">TGE</span>
-            <span className="text-xs font-semibold tracking-widest text-foreground/60 uppercase">Resources</span>
-          </div>
+          <Link href="/" className="mb-3 inline-block" aria-label="TGE Resources, Inc. home">
+            <BrandLogo className="h-14 w-auto" />
+          </Link>
           <p className="text-xs leading-relaxed text-muted-foreground italic mb-4">
             Environmental Excellence · Protective Strategies · Responsible Solutions
           </p>

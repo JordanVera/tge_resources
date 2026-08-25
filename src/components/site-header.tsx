@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { MenuIcon, PhoneIcon, XIcon, ShieldCheckIcon } from 'lucide-react';
 
+import { BrandLogo } from '@/components/brand-logo';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -42,14 +43,9 @@ export function SiteHeader() {
         </div>
       </div>
 
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 md:px-6">
-        <Link href="/" className="shrink-0">
-          <div className="flex items-baseline gap-2">
-            <span className="text-2xl font-bold tracking-tight text-primary">TGE</span>
-            <span className="text-sm font-semibold tracking-widest text-foreground/70 uppercase">
-              Resources
-            </span>
-          </div>
+      <div className="mx-auto flex h-18 max-w-6xl items-center justify-between gap-4 px-4 md:px-6">
+        <Link href="/" className="shrink-0" aria-label="TGE Resources, Inc. home">
+          <BrandLogo priority className="h-12 w-auto" />
         </Link>
 
         <nav className="hidden items-center gap-0.5 lg:flex">
@@ -89,8 +85,7 @@ export function SiteHeader() {
             <SheetContent side="right" className="w-80">
               <SheetHeader className="pb-2">
                 <SheetTitle>
-                  <span className="text-xl font-bold text-primary">TGE</span>
-                  <span className="ml-2 text-sm font-semibold tracking-widest text-foreground/70 uppercase">Resources</span>
+                  <BrandLogo className="h-10 w-auto" />
                 </SheetTitle>
               </SheetHeader>
               <div className="px-4 pb-2">
