@@ -24,7 +24,6 @@ import {
   UsersIcon,
   TrendingUpIcon,
   AwardIcon,
-  MapPinIcon,
 } from 'lucide-react';
 
 import { ClientSlider } from '@/components/client-slider';
@@ -34,7 +33,6 @@ import { Section, SectionHeading } from '@/components/section';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
 import { LeadForm } from '@/components/lead-form';
 import { services, industries } from '@/lib/services';
 import { site } from '@/lib/site';
@@ -299,7 +297,7 @@ export default function HomePage() {
         </Stagger>
       </Section>
 
-      {/* About */}
+      {/* About teaser */}
       <Section id="about">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeIn>
@@ -308,37 +306,15 @@ export default function HomePage() {
               title="30 years. 10,000+ projects. 80% referral rate."
               description="Every project we undertake is bound by our core values. Our commitment to reliable, honest, and trustworthy scientific practices sets us apart — and keeps clients coming back."
             />
-            <div className="mt-6 space-y-4">
-              {[
-                {
-                  title:
-                    'Client & staff retention exceeds any industry benchmark',
-                  body: "Over 80% of new work originates from client referrals. Our team's tenure and expertise is a direct competitive advantage for every client engagement.",
-                },
-                {
-                  title: '130+ years of combined management experience',
-                  body: 'Our senior leadership team brings deep technical expertise across due diligence, IH, engineering, remediation, compliance, and litigation support.',
-                },
-                {
-                  title: 'Certified for federal and private-sector work',
-                  body: 'WBENC and SBA-certified Woman Owned Small Business. DUNS and CAGE registered for federal procurement. Public, private, and government clients.',
-                },
-              ].map((item) => (
-                <div key={item.title} className="flex items-start gap-3">
-                  <CheckCircleIcon className="mt-0.5 size-5 shrink-0 text-primary" />
-                  <div>
-                    <p className="text-sm font-semibold">{item.title}</p>
-                    <p className="mt-0.5 text-sm text-muted-foreground">
-                      {item.body}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <Button asChild className="h-11 px-5 font-semibold">
+              <Link href="/about">
+                Learn more about TGE
+                <ArrowRightIcon className="size-4" />
+              </Link>
+            </Button>
           </FadeIn>
 
-          <FadeIn delay={0.1} className="space-y-4">
-            {/* Core values */}
+          <FadeIn delay={0.1}>
             <Card>
               <CardContent className="p-6">
                 <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
@@ -350,66 +326,8 @@ export default function HomePage() {
                       key={v}
                       className="flex items-center gap-2 text-sm font-medium"
                     >
-                      <span className="size-2 rounded-full bg-primary/70 shrink-0" />
+                      <span className="size-2 shrink-0 rounded-full bg-primary/70" />
                       {v}
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Address / contact */}
-            <Card className="border-primary/20 bg-primary/5">
-              <CardContent className="p-6">
-                <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                  Houston Headquarters
-                </h3>
-                <div className="space-y-3 text-sm">
-                  <div className="flex items-start gap-2.5">
-                    <MapPinIcon className="mt-0.5 size-4 shrink-0 text-primary" />
-                    <div>
-                      <p className="font-semibold">{site.address.street}</p>
-                      <p className="text-muted-foreground">
-                        {site.address.city}, {site.address.state}{' '}
-                        {site.address.zip}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <PhoneIcon className="size-4 shrink-0 text-primary" />
-                    <a
-                      href={site.phoneHref}
-                      className="font-semibold hover:text-primary transition-colors"
-                    >
-                      {site.phone}
-                    </a>
-                  </div>
-                </div>
-                <Separator className="my-4" />
-                <p className="text-xs text-muted-foreground">
-                  {site.hours.weekdays}
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* NAICS */}
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                  NAICS Codes
-                </h3>
-                <div className="space-y-1.5">
-                  {site.naics.map((n) => (
-                    <div
-                      key={n.code}
-                      className="flex items-center gap-2 text-xs"
-                    >
-                      <span className="font-mono font-semibold text-primary">
-                        {n.code}
-                      </span>
-                      <span className="text-muted-foreground">
-                        {n.description}
-                      </span>
                     </div>
                   ))}
                 </div>

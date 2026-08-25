@@ -12,7 +12,10 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="flex flex-wrap items-center gap-x-8 gap-y-3 border-b border-border py-5">
           {site.certifications.map((cert) => (
-            <div key={cert} className="flex items-center gap-2 text-sm font-medium">
+            <div
+              key={cert}
+              className="flex items-center gap-2 text-sm font-medium"
+            >
               <ShieldCheckIcon className="size-4 shrink-0 text-primary" />
               {cert}
             </div>
@@ -22,15 +25,20 @@ export function SiteFooter() {
 
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-4 md:px-6">
         <div className="md:col-span-1">
-          <Link href="/" className="mb-3 inline-block" aria-label="TGE Resources, Inc. home">
+          <Link
+            href="/"
+            className="mb-3 inline-block"
+            aria-label="TGE Resources, Inc. home"
+          >
             <BrandLogo className="h-14 w-auto" />
           </Link>
           <p className="text-xs leading-relaxed text-muted-foreground italic mb-4">
-            Environmental Excellence · Protective Strategies · Responsible Solutions
+            Environmental Excellence · Protective Strategies · Responsible
+            Solutions
           </p>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            Established {site.founded}. Environmental consulting serving clients coast-to-coast
-            from Houston, TX.
+            Established {site.founded}. Environmental consulting serving clients
+            coast-to-coast from Houston, TX.
           </p>
           <div className="mt-5 space-y-2.5 text-sm">
             <a
@@ -51,7 +59,9 @@ export function SiteFooter() {
               <MapPinIcon className="mt-0.5 size-4 shrink-0 text-primary" />
               <div className="text-xs">
                 <p>{site.address.street}</p>
-                <p>{site.address.city}, {site.address.state} {site.address.zip}</p>
+                <p>
+                  {site.address.city}, {site.address.state} {site.address.zip}
+                </p>
               </div>
             </div>
           </div>
@@ -62,6 +72,22 @@ export function SiteFooter() {
             Services
           </h3>
           <ul className="space-y-2 text-sm">
+            <li>
+              <Link
+                href="/about"
+                className="font-medium text-foreground transition-colors hover:text-primary"
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/projects"
+                className="font-medium text-foreground transition-colors hover:text-primary"
+              >
+                Projects
+              </Link>
+            </li>
             {services.map((s) => (
               <li key={s.slug}>
                 <Link
@@ -81,17 +107,25 @@ export function SiteFooter() {
           </h3>
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li>
-              <span className="text-xs font-semibold uppercase tracking-wider text-foreground/50">DUNS</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-foreground/50">
+                DUNS
+              </span>
               <p>{site.codes.duns}</p>
             </li>
             <li>
-              <span className="text-xs font-semibold uppercase tracking-wider text-foreground/50">CAGE Code</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-foreground/50">
+                CAGE Code
+              </span>
               <p>{site.codes.cage}</p>
             </li>
             <li className="pt-1">
-              <span className="text-xs font-semibold uppercase tracking-wider text-foreground/50">NAICS Codes</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-foreground/50">
+                NAICS Codes
+              </span>
               {site.naics.map((n) => (
-                <p key={n.code} className="text-xs">{n.code} — {n.description}</p>
+                <p key={n.code} className="text-xs">
+                  {n.code} — {n.description}
+                </p>
               ))}
             </li>
           </ul>
@@ -114,7 +148,9 @@ export function SiteFooter() {
 
       <Separator />
       <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-muted-foreground md:flex-row md:justify-between md:px-6">
-        <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
+        <p>
+          © {new Date().getFullYear()} {site.name}. All rights reserved.
+        </p>
         <p>Established {site.founded} · WBENC Certified · Houston, TX</p>
       </div>
     </footer>
