@@ -64,7 +64,12 @@ export function SiteFooter() {
           <ul className="space-y-2 text-sm">
             {services.map((s) => (
               <li key={s.slug}>
-                <span className="text-muted-foreground">{s.shortName}</span>
+                <Link
+                  href={`/services/${s.slug}`}
+                  className="text-muted-foreground transition-colors hover:text-primary"
+                >
+                  {s.shortName}
+                </Link>
               </li>
             ))}
           </ul>

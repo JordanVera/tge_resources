@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   PhoneIcon,
@@ -220,37 +221,53 @@ export default function HomePage() {
             const Icon = serviceIconMap[service.icon] ?? SearchIcon;
             return (
               <StaggerItem key={service.slug}>
-                <Card className="group h-full transition-all hover:glow-primary">
-                  <CardHeader>
-                    <div className="mb-1 flex items-center justify-between">
-                      <div className="flex size-10 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
-                        <Icon className="size-5 text-primary" />
-                      </div>
-                      <span className="text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
-                        {service.eyebrow}
-                      </span>
+                <Link href={`/services/${service.slug}`} className="block h-full">
+                  <Card className="group h-full overflow-hidden py-0 transition-all hover:glow-primary">
+                    <div className="relative h-48 overflow-hidden">
+                      <Image
+                        src={service.image}
+                        alt={service.imageAlt}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-linear-to-t from-card/80 to-transparent" />
                     </div>
-                    <CardTitle className="mt-3 text-base leading-snug">
-                      {service.name}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <p className="text-sm leading-relaxed text-muted-foreground">
-                      {service.description}
-                    </p>
-                    <ul className="space-y-1.5">
-                      {service.bullets.map((b) => (
-                        <li
-                          key={b}
-                          className="flex items-start gap-2 text-xs text-muted-foreground"
-                        >
-                          <CheckCircleIcon className="mt-0.5 size-3.5 shrink-0 text-primary" />
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
+                    <CardHeader>
+                      <div className="mb-1 flex items-center justify-between">
+                        <div className="flex size-10 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
+                          <Icon className="size-5 text-primary" />
+                        </div>
+                        <span className="text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
+                          {service.eyebrow}
+                        </span>
+                      </div>
+                      <CardTitle className="mt-3 text-base leading-snug">
+                        {service.name}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex flex-1 flex-col space-y-4 pb-5">
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        {service.description}
+                      </p>
+                      <ul className="space-y-1.5">
+                        {service.bullets.map((b) => (
+                          <li
+                            key={b}
+                            className="flex items-start gap-2 text-xs text-muted-foreground"
+                          >
+                            <CheckCircleIcon className="mt-0.5 size-3.5 shrink-0 text-primary" />
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                      <span className="mt-auto inline-flex items-center gap-1 pt-2 text-sm font-semibold text-primary">
+                        Learn more
+                        <ArrowRightIcon className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+                      </span>
+                    </CardContent>
+                  </Card>
+                </Link>
               </StaggerItem>
             );
           })}
