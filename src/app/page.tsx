@@ -26,6 +26,7 @@ import {
   MapPinIcon,
 } from 'lucide-react';
 
+import { ClientSlider } from '@/components/client-slider';
 import { FadeIn, Stagger, StaggerItem } from '@/components/motion';
 import { HeroVideo } from '@/components/hero-video';
 import { Section, SectionHeading } from '@/components/section';
@@ -38,7 +39,8 @@ import { services, industries } from '@/lib/services';
 import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Environmental Consulting Houston TX | Phase I & II ESA | Industrial Hygiene',
+  title:
+    'Environmental Consulting Houston TX | Phase I & II ESA | Industrial Hygiene',
   description: site.description,
 };
 
@@ -64,10 +66,30 @@ const industryIconMap: Record<string, React.ElementType> = {
 };
 
 const statsData = [
-  { value: site.stats.years, label: 'Years of Operation', sub: 'Est. 1994', icon: AwardIcon },
-  { value: site.stats.projects, label: 'Projects Completed', sub: 'Coast to coast', icon: CheckCircleIcon },
-  { value: site.stats.clients, label: 'Clients Served', sub: 'Public & private', icon: UsersIcon },
-  { value: site.stats.referral, label: 'New Work from Referrals', sub: 'Industry leading retention', icon: TrendingUpIcon },
+  {
+    value: site.stats.years,
+    label: 'Years of Operation',
+    sub: 'Est. 1994',
+    icon: AwardIcon,
+  },
+  {
+    value: site.stats.projects,
+    label: 'Projects Completed',
+    sub: 'Coast to coast',
+    icon: CheckCircleIcon,
+  },
+  {
+    value: site.stats.clients,
+    label: 'Clients Served',
+    sub: 'Public & private',
+    icon: UsersIcon,
+  },
+  {
+    value: site.stats.referral,
+    label: 'New Work from Referrals',
+    sub: 'Industry leading retention',
+    icon: TrendingUpIcon,
+  },
 ];
 
 export default function HomePage() {
@@ -76,8 +98,8 @@ export default function HomePage() {
       {/* Hero */}
       <div className="relative overflow-hidden border-b border-border">
         <HeroVideo src="/hero-video.mp4" />
-        <div className="absolute inset-0 bg-linear-to-r from-background via-background/80 to-background/45" />
-        <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-black/50" />
+        <div className="absolute inset-0 bg-linear-to-r from-background via-background/50 to-background/20" />
+        {/* <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-background/40" /> */}
         <div className="hero-gradient absolute inset-0" />
         <div className="relative mx-auto max-w-6xl px-4 py-24 md:px-6 md:py-40">
           <FadeIn>
@@ -94,8 +116,7 @@ export default function HomePage() {
 
           <FadeIn delay={0.06}>
             <h1 className="max-w-4xl font-heading text-4xl font-bold tracking-tight text-balance md:text-6xl lg:text-7xl">
-              Environmental{' '}
-              <span className="text-primary">excellence</span>{' '}
+              Environmental <span className="text-primary">excellence</span>{' '}
               built on{' '}
               <span className="relative inline-block">
                 30 years
@@ -107,9 +128,10 @@ export default function HomePage() {
 
           <FadeIn delay={0.12}>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              From Phase I &amp; II ESA to industrial hygiene, remediation, and litigation support
-              — TGE delivers timely, accurate, and cost-effective environmental services
-              with an unwavering commitment to client interests.
+              From Phase I &amp; II ESA to industrial hygiene, remediation, and
+              litigation support — TGE delivers timely, accurate, and
+              cost-effective environmental services with an unwavering
+              commitment to client interests.
             </p>
           </FadeIn>
 
@@ -120,7 +142,11 @@ export default function HomePage() {
                 <ArrowRightIcon className="size-4" />
               </Link>
             </Button>
-            <Button asChild variant="outline" className="h-12 px-6 bg-black/30 text-base font-medium">
+            <Button
+              asChild
+              variant="outline"
+              className="h-12 px-6 bg-background/80 text-base font-medium"
+            >
               <a href={site.phoneHref}>
                 <PhoneIcon className="size-4" />
                 {site.phone}
@@ -129,8 +155,17 @@ export default function HomePage() {
           </FadeIn>
 
           <FadeIn delay={0.28} className="mt-10 flex flex-wrap gap-x-8 gap-y-2">
-            {['Environmental Due Diligence', 'Industrial Hygiene', 'Remediation', 'Compliance', 'Litigation Support'].map((s) => (
-              <span key={s} className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
+            {[
+              'Environmental Due Diligence',
+              'Industrial Hygiene',
+              'Remediation',
+              'Compliance',
+              'Litigation Support',
+            ].map((s) => (
+              <span
+                key={s}
+                className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground"
+              >
                 <span className="size-1 rounded-full bg-primary/60" />
                 {s}
               </span>
@@ -146,7 +181,9 @@ export default function HomePage() {
             <FadeIn key={stat.label}>
               <div className="flex flex-col items-center gap-1 p-8 text-center">
                 <stat.icon className="mb-1 size-5 text-primary" />
-                <p className="text-4xl font-bold tracking-tight text-foreground">{stat.value}</p>
+                <p className="text-4xl font-bold tracking-tight text-foreground">
+                  {stat.value}
+                </p>
                 <p className="text-sm font-semibold">{stat.label}</p>
                 <p className="text-xs text-muted-foreground">{stat.sub}</p>
               </div>
@@ -154,6 +191,22 @@ export default function HomePage() {
           ))}
         </div>
       </div>
+
+      {/* Clients */}
+      <section
+        id="clients"
+        className="overflow-hidden border-b border-border bg-background py-14 md:py-16"
+      >
+        <FadeIn className="mx-auto max-w-6xl px-4 text-center md:px-6">
+          <p className="mb-2 text-xs font-semibold tracking-[0.2em] text-primary uppercase">
+            Trusted clients
+          </p>
+          <h2 className="font-heading text-2xl font-bold tracking-tight md:text-3xl">
+            Organizations that rely on TGE
+          </h2>
+        </FadeIn>
+        <ClientSlider />
+      </section>
 
       {/* Services */}
       <Section id="services">
@@ -177,7 +230,9 @@ export default function HomePage() {
                         {service.eyebrow}
                       </span>
                     </div>
-                    <CardTitle className="mt-3 text-base leading-snug">{service.name}</CardTitle>
+                    <CardTitle className="mt-3 text-base leading-snug">
+                      {service.name}
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <p className="text-sm leading-relaxed text-muted-foreground">
@@ -185,7 +240,10 @@ export default function HomePage() {
                     </p>
                     <ul className="space-y-1.5">
                       {service.bullets.map((b) => (
-                        <li key={b} className="flex items-start gap-2 text-xs text-muted-foreground">
+                        <li
+                          key={b}
+                          className="flex items-start gap-2 text-xs text-muted-foreground"
+                        >
                           <CheckCircleIcon className="mt-0.5 size-3.5 shrink-0 text-primary" />
                           {b}
                         </li>
@@ -214,7 +272,9 @@ export default function HomePage() {
               <StaggerItem key={industry.name}>
                 <div className="flex flex-col items-center gap-2 rounded-xl border border-border bg-card/80 p-4 text-center transition-shadow hover:glow-primary">
                   <Icon className="size-6 text-primary" />
-                  <span className="text-xs font-medium leading-tight">{industry.name}</span>
+                  <span className="text-xs font-medium leading-tight">
+                    {industry.name}
+                  </span>
                 </div>
               </StaggerItem>
             );
@@ -234,8 +294,9 @@ export default function HomePage() {
             <div className="mt-6 space-y-4">
               {[
                 {
-                  title: 'Client & staff retention exceeds any industry benchmark',
-                  body: 'Over 80% of new work originates from client referrals. Our team\'s tenure and expertise is a direct competitive advantage for every client engagement.',
+                  title:
+                    'Client & staff retention exceeds any industry benchmark',
+                  body: "Over 80% of new work originates from client referrals. Our team's tenure and expertise is a direct competitive advantage for every client engagement.",
                 },
                 {
                   title: '130+ years of combined management experience',
@@ -250,7 +311,9 @@ export default function HomePage() {
                   <CheckCircleIcon className="mt-0.5 size-5 shrink-0 text-primary" />
                   <div>
                     <p className="text-sm font-semibold">{item.title}</p>
-                    <p className="mt-0.5 text-sm text-muted-foreground">{item.body}</p>
+                    <p className="mt-0.5 text-sm text-muted-foreground">
+                      {item.body}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -266,7 +329,10 @@ export default function HomePage() {
                 </h3>
                 <div className="grid grid-cols-2 gap-3">
                   {site.coreValues.map((v) => (
-                    <div key={v} className="flex items-center gap-2 text-sm font-medium">
+                    <div
+                      key={v}
+                      className="flex items-center gap-2 text-sm font-medium"
+                    >
                       <span className="size-2 rounded-full bg-primary/70 shrink-0" />
                       {v}
                     </div>
@@ -286,12 +352,18 @@ export default function HomePage() {
                     <MapPinIcon className="mt-0.5 size-4 shrink-0 text-primary" />
                     <div>
                       <p className="font-semibold">{site.address.street}</p>
-                      <p className="text-muted-foreground">{site.address.city}, {site.address.state} {site.address.zip}</p>
+                      <p className="text-muted-foreground">
+                        {site.address.city}, {site.address.state}{' '}
+                        {site.address.zip}
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2.5">
                     <PhoneIcon className="size-4 shrink-0 text-primary" />
-                    <a href={site.phoneHref} className="font-semibold hover:text-primary transition-colors">
+                    <a
+                      href={site.phoneHref}
+                      className="font-semibold hover:text-primary transition-colors"
+                    >
                       {site.phone}
                     </a>
                   </div>
@@ -311,9 +383,16 @@ export default function HomePage() {
                 </h3>
                 <div className="space-y-1.5">
                   {site.naics.map((n) => (
-                    <div key={n.code} className="flex items-center gap-2 text-xs">
-                      <span className="font-mono font-semibold text-primary">{n.code}</span>
-                      <span className="text-muted-foreground">{n.description}</span>
+                    <div
+                      key={n.code}
+                      className="flex items-center gap-2 text-xs"
+                    >
+                      <span className="font-mono font-semibold text-primary">
+                        {n.code}
+                      </span>
+                      <span className="text-muted-foreground">
+                        {n.description}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -334,8 +413,9 @@ export default function HomePage() {
               Tell us about your project
             </h2>
             <p className="mt-4 text-base text-muted-foreground">
-              We respond within one business day with a clear, transparent proposal. No
-              unnecessary scope, no overpriced deliverables — just honest, expert work.
+              We respond within one business day with a clear, transparent
+              proposal. No unnecessary scope, no overpriced deliverables — just
+              honest, expert work.
             </p>
           </FadeIn>
           <FadeIn
@@ -349,7 +429,10 @@ export default function HomePage() {
                 '10,000+ projects of experience',
                 'Coast-to-coast service',
               ].map((p) => (
-                <div key={p} className="flex items-center gap-2 text-xs text-muted-foreground">
+                <div
+                  key={p}
+                  className="flex items-center gap-2 text-xs text-muted-foreground"
+                >
                   <CheckCircleIcon className="size-3.5 shrink-0 text-primary" />
                   {p}
                 </div>
@@ -371,8 +454,8 @@ export default function HomePage() {
               Ready to partner with TGE Resources?
             </h2>
             <p className="mt-1.5 text-sm text-muted-foreground max-w-lg">
-              We promise responsiveness, professionalism, courtesy, and fairness — and we bring
-              innovation and efficiency to everything we do.
+              We promise responsiveness, professionalism, courtesy, and fairness
+              — and we bring innovation and efficiency to everything we do.
             </p>
           </div>
           <div className="flex shrink-0 flex-wrap items-center justify-center gap-3">

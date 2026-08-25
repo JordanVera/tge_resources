@@ -54,7 +54,7 @@ export function PageHero({
         className={cn(
           "absolute inset-0",
           image
-            ? "bg-linear-to-r from-black/92 via-black/70 to-black/30"
+            ? "bg-linear-to-r from-background/95 via-background/80 to-background/45"
             : "bg-card"
         )}
       />
@@ -85,7 +85,7 @@ export function PageHero({
         </Reveal>
         {description ? (
           <Reveal delay={0.16}>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-200 md:text-lg">
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
               {description}
             </p>
           </Reveal>
